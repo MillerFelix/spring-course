@@ -1,4 +1,4 @@
-package resources;
+package com.millerproject.coursespring.resources;
 
 import com.millerproject.coursespring.entities.User;
 import org.springframework.http.ResponseEntity;

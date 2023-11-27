@@ -1,4 +1,4 @@
-package entities;
+package com.millerproject.coursespring.entities;
 
 import java.io.Serial;
 import java.io.Serializable;
