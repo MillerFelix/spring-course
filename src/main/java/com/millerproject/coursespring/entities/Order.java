@@ -2,7 +2,6 @@ package com.millerproject.coursespring.entities;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.millerproject.coursespring.entities.enums.OrderStatus;
-import com.millerproject.coursespring.entities.OrderItem;
 import jakarta.persistence.*;
 
 import java.io.Serial;
@@ -32,6 +31,8 @@ public class Order implements Serializable {
     private User client;
     @OneToMany(mappedBy = "id.order")
     private Set<OrderItem> items = new HashSet<>();
+    @OneToOne(mappedBy = "order", cascade = CascadeType.ALL)
+    private Payment payment;
 
     public Order() {
     }
@@ -75,6 +76,14 @@ public class Order implements Serializable {
 
     public void setClient(User client) {
         this.client = client;
+    }
+
+    public Payment getPayment() {
+        return payment;
+    }
+
+    public void setPayment(Payment payment) {
+        this.payment = payment;
     }
 
     public Set<OrderItem> getItems() {
